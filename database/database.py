@@ -14,7 +14,16 @@ CREATE TABLE IF NOT EXISTS products (
     discount REAL,
     rating REAL,
     stock INTEGER,
-    url TEXT
+    url TEXT UNIQUE
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS price_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_url TEXT,
+    price REAL,
+    checked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 
